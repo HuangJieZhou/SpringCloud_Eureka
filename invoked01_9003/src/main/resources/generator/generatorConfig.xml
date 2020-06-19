@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--<properties resource="jdbc.properties"/>-->
+
+    <!--连接mysql的jar包-->
+    <classPathEntry location="C:\Users\HuangJieZhou\.m2\repository\org\postgresql\postgresql\42.2.5\postgresql-42.2.5.jar" />
+
+    <context id="default" targetRuntime="MyBatis3">
+        <!--optional,旨在创建class时，对注释进行控制-->
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://localhost:5432/honor"
+                        userId="postgres"
+                        password="power.huang"/>
+        <!-- 生成model =》 数据层 -->
+        <javaModelGenerator targetPackage="org.hjz.invoked01.common.model" targetProject="src/main/java">
+        </javaModelGenerator>
+        <!-- 生成mapper 存有mybatis的数据库操作xml -->
+        <sqlMapGenerator targetPackage="org.hjz.invoked01.common.mapper" targetProject="src/main/java">
+        </sqlMapGenerator>
+        <!-- 存有mappper的接口类，mybatis会自动生成实体类，将mapper和dao连接起来 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.hjz.invoked01.common.dao" targetProject="src/main/java">
+        </javaClientGenerator>
+        <!-- 表的名字 -->
+        <table schema="power" tableName="area" domainObjectName="Area"/>
+    </context>
+</generatorConfiguration>

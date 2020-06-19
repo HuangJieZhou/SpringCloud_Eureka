@@ -1,0 +1,10 @@
+server:
+  port: 9006
+spring:
+  application:
+    name: discovery02 #SpringCloud是通过实例名发现服务的
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka01:9001/eureka/,http://eureka02:9002/eureka/ #注册到eureka注册中心
+

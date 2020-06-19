@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="discovery01_9005" />
+        <module name="invoked01_9003" />
+        <module name="discovery02_9006" />
+        <module name="SpringCloud" />
+        <module name="invoked02_9004" />
+        <module name="zuul_9008" />
+        <module name="eureka01_9001" />
+        <module name="hystrixdashboard_9007" />
+        <module name="eureka02_9002" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="discovery01_9005" options="-parameters" />
+      <module name="discovery02_9006" options="-parameters" />
+      <module name="eureka01_9001" options="-parameters" />
+      <module name="eureka02_9002" options="-parameters" />
+      <module name="hystrixdashboard_9007" options="-parameters" />
+      <module name="invoked01_9003" options="-parameters" />
+      <module name="invoked02_9004" options="-parameters" />
+      <module name="zuul_9008" options="-parameters" />
+    </option>
+  </component>
+</project>

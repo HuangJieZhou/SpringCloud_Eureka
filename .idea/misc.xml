@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka01_9001/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka02_9002/pom.xml" />
+        <option value="$PROJECT_DIR$/invoked01_9003/pom.xml" />
+        <option value="$PROJECT_DIR$/invoked02_9004/pom.xml" />
+        <option value="$PROJECT_DIR$/discovery01_9005/pom.xml" />
+        <option value="$PROJECT_DIR$/discovery02_9005/pom.xml" />
+        <option value="$PROJECT_DIR$/discovery02_9006/pom.xml" />
+        <option value="$PROJECT_DIR$/hystrixdashboard_9007/pom.xml" />
+        <option value="$PROJECT_DIR$/zuul_9008/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

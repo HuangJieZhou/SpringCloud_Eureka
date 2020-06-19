@@ -1,0 +1,26 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: invoked #SpringCloud注册中心是通过应用实例名识别服务
+  datasource: #postgreSql连接配置
+    url: jdbc:postgresql://localhost:5432/honor?currentSchema=pressfree
+    username: postgres
+    password: power.huang
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: Invoked #连接池名称
+      minimum-idle: 3 #最小空闲时间，默认值为10
+      maximum-pool-size: 12 #最大连接数
+      connection-timeout: 30000 #最小空闲连接
+      idle-timeout: 600000  #空闲连接超时时间
+      max-lifetime: 1200000 #连接最大存活时间
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka01:9001/eureka/,http://eureka02:9002/eureka/ #注册到eureka注册中心
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:org\\hjz\\invoked02\\common\\mapper\\**.xml
+  type-aliases-package: org.hjz.invoked02.common.model

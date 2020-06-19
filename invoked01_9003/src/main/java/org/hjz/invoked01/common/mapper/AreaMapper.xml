@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hjz.invoked01.common.dao.AreaMapper" >
+  <resultMap id="BaseResultMap" type="org.hjz.invoked01.common.model.Area" >
+    <id column="area_id" property="areaId" jdbcType="NUMERIC" />
+    <result column="area_no" property="areaNo" jdbcType="VARCHAR" />
+    <result column="area_name" property="areaName" jdbcType="VARCHAR" />
+    <result column="area_type" property="areaType" jdbcType="CHAR" />
+    <result column="area_fid" property="areaFid" jdbcType="NUMERIC" />
+    <result column="area_code" property="areaCode" jdbcType="VARCHAR" />
+    <result column="area_state" property="areaState" jdbcType="CHAR" />
+    <result column="clzt" property="clzt" jdbcType="VARCHAR" />
+    <result column="area_sno" property="areaSno" jdbcType="NUMERIC" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    area_id, area_no, area_name, area_type, area_fid, area_code, area_state, clzt, area_sno
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.hjz.invoked01.common.model.AreaExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from power.area
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from power.area
+    where area_id = #{areaId,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from power.area
+    where area_id = #{areaId,jdbcType=NUMERIC}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.hjz.invoked01.common.model.AreaExample" >
+    delete from power.area
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.hjz.invoked01.common.model.Area" >
+    insert into power.area (area_id, area_no, area_name, 
+      area_type, area_fid, area_code, 
+      area_state, clzt, area_sno
+      )
+    values (#{areaId,jdbcType=NUMERIC}, #{areaNo,jdbcType=VARCHAR}, #{areaName,jdbcType=VARCHAR}, 
+      #{areaType,jdbcType=CHAR}, #{areaFid,jdbcType=NUMERIC}, #{areaCode,jdbcType=VARCHAR}, 
+      #{areaState,jdbcType=CHAR}, #{clzt,jdbcType=VARCHAR}, #{areaSno,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.hjz.invoked01.common.model.Area" >
+    insert into power.area
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="areaNo != null" >
+        area_no,
+      </if>
+      <if test="areaName != null" >
+        area_name,
+      </if>
+      <if test="areaType != null" >
+        area_type,
+      </if>
+      <if test="areaFid != null" >
+        area_fid,
+      </if>
+      <if test="areaCode != null" >
+        area_code,
+      </if>
+      <if test="areaState != null" >
+        area_state,
+      </if>
+      <if test="clzt != null" >
+        clzt,
+      </if>
+      <if test="areaSno != null" >
+        area_sno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="areaId != null" >
+        #{areaId,jdbcType=NUMERIC},
+      </if>
+      <if test="areaNo != null" >
+        #{areaNo,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaType != null" >
+        #{areaType,jdbcType=CHAR},
+      </if>
+      <if test="areaFid != null" >
+        #{areaFid,jdbcType=NUMERIC},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaState != null" >
+        #{areaState,jdbcType=CHAR},
+      </if>
+      <if test="clzt != null" >
+        #{clzt,jdbcType=VARCHAR},
+      </if>
+      <if test="areaSno != null" >
+        #{areaSno,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.hjz.invoked01.common.model.AreaExample" resultType="java.lang.Integer" >
+    select count(*) from power.area
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update power.area
+    <set >
+      <if test="record.areaId != null" >
+        area_id = #{record.areaId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.areaNo != null" >
+        area_no = #{record.areaNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaName != null" >
+        area_name = #{record.areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaType != null" >
+        area_type = #{record.areaType,jdbcType=CHAR},
+      </if>
+      <if test="record.areaFid != null" >
+        area_fid = #{record.areaFid,jdbcType=NUMERIC},
+      </if>
+      <if test="record.areaCode != null" >
+        area_code = #{record.areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaState != null" >
+        area_state = #{record.areaState,jdbcType=CHAR},
+      </if>
+      <if test="record.clzt != null" >
+        clzt = #{record.clzt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaSno != null" >
+        area_sno = #{record.areaSno,jdbcType=NUMERIC},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update power.area
+    set area_id = #{record.areaId,jdbcType=NUMERIC},
+      area_no = #{record.areaNo,jdbcType=VARCHAR},
+      area_name = #{record.areaName,jdbcType=VARCHAR},
+      area_type = #{record.areaType,jdbcType=CHAR},
+      area_fid = #{record.areaFid,jdbcType=NUMERIC},
+      area_code = #{record.areaCode,jdbcType=VARCHAR},
+      area_state = #{record.areaState,jdbcType=CHAR},
+      clzt = #{record.clzt,jdbcType=VARCHAR},
+      area_sno = #{record.areaSno,jdbcType=NUMERIC}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.hjz.invoked01.common.model.Area" >
+    update power.area
+    <set >
+      <if test="areaNo != null" >
+        area_no = #{areaNo,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        area_name = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaType != null" >
+        area_type = #{areaType,jdbcType=CHAR},
+      </if>
+      <if test="areaFid != null" >
+        area_fid = #{areaFid,jdbcType=NUMERIC},
+      </if>
+      <if test="areaCode != null" >
+        area_code = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaState != null" >
+        area_state = #{areaState,jdbcType=CHAR},
+      </if>
+      <if test="clzt != null" >
+        clzt = #{clzt,jdbcType=VARCHAR},
+      </if>
+      <if test="areaSno != null" >
+        area_sno = #{areaSno,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where area_id = #{areaId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.hjz.invoked01.common.model.Area" >
+    update power.area
+    set area_no = #{areaNo,jdbcType=VARCHAR},
+      area_name = #{areaName,jdbcType=VARCHAR},
+      area_type = #{areaType,jdbcType=CHAR},
+      area_fid = #{areaFid,jdbcType=NUMERIC},
+      area_code = #{areaCode,jdbcType=VARCHAR},
+      area_state = #{areaState,jdbcType=CHAR},
+      clzt = #{clzt,jdbcType=VARCHAR},
+      area_sno = #{areaSno,jdbcType=NUMERIC}
+    where area_id = #{areaId,jdbcType=NUMERIC}
+  </update>
+</mapper>
