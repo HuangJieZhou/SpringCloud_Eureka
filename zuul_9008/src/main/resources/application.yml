@@ -12,9 +12,7 @@ eureka:
 #自定义路由映射
 zuul:
   routes:
-    discovery-service: /get/**
-    invoked-service: /select/**
-  #统一入口为上面的配置，其他入口忽略
-  ignored-patterns: /*-service/**
-  #忽略整个服务，对外提供接口
-  ignored-services: city_service
+    invoked.service: invoked #服务实例
+    invoked.path: /gain/**  #原访问论据：：localhost:9008/invoked/select/city?areaId=1，设置后访问路径：localhost:9008/gain/select/city?areaId=1
+  ignored-services: invoked #忽略整个服务，对外提供接口,使用localhost:9008/invoked/select/city?areaId=1不能直接问，只能使用localhost:9008/gain/select/city?areaId=1，对多个访问使用“*”
+  prefix: /hjz #设置前缀，访问路径：localhost:9008/hjz/gain/select/city?areaId=1
